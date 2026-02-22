@@ -59,7 +59,7 @@ export default function DeveloperTestingPage() {
   const handleLike = async () => {
     setFeedback("like");
     try {
-      await fetch("http://165.227.11.150/like", {
+      await fetch("/api-proxy/like", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question, response, like: true }),
@@ -79,7 +79,7 @@ export default function DeveloperTestingPage() {
     if (!correctAnswer.trim()) return;
     setIsLoading(true); // تفعيل حالة التحميل هنا
     try {
-      await fetch("http://165.227.11.150/dislike", {
+      await fetch("/api-proxy/dislike", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
