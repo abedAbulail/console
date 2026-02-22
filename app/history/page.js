@@ -14,7 +14,7 @@ export default function HistoryPage() {
         window.location.href = "/login";
         return;
       }
-      const res = await fetch("http://165.227.11.150/history", {
+      const res = await fetch("/api-proxy/history", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
@@ -34,7 +34,7 @@ export default function HistoryPage() {
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this record?")) return;
     try {
-      const res = await fetch(`http://165.227.11.150/delete-history/${id}`, {
+      const res = await fetch(`/api-proxy/delete-history/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
